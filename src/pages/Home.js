@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import { actions } from '../redux/modules/pages/home'
 import Button from '../components/Button'
+import Counter from '../containers/Counter'
 import PhotoImg from '../assets/img/dummy.jpg'
 
 function Home({ handleChange, handleSubmit, page }) {
@@ -39,6 +40,9 @@ function Home({ handleChange, handleSubmit, page }) {
           </Button>
         </p>
       </form>
+      <div>
+        <Counter />
+      </div>
     </div>
   )
 }
