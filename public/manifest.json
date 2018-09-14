@@ -1,0 +1,13 @@
+{
+  "name": "アプリケーション名",
+  "short_name": "ホーム画面で表示される省略名",
+  "icons": [
+    {
+      "src": "/img/icon/144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone"
+}
