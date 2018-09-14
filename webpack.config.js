@@ -25,9 +25,20 @@ module.exports = {
   devtool: 'source-map',
   entry: ['./src/index.js'],
   output: {
-    filename: '[name].[hash].js',
+    filename: 'js/[name].[hash].js',
     publicPath: '/',
     path: path.resolve(__dirname, output)
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all'
+        }
+      }
+    }
   },
   plugins: [
     new htmlPlugin({ template: 'src/index.html' }),
@@ -38,7 +49,9 @@ module.exports = {
   ].concat(
     isProd
       ? [
-          new CopyWebpackPlugin([{ from: '**/*', to: '.', context: 'public' }]),
+          new CopyWebpackPlugin([
+            { from: '**/(!README)*', to: '.', context: 'public' }
+          ]),
           new CompressionPlugin({
             test: /\.js(\?.*)?$/i
           })
