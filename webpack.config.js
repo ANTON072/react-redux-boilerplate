@@ -87,6 +87,10 @@ module.exports = {
       }
     ]
   },
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   serve: {
     content: path.resolve(__dirname, 'public'),
     host: '0.0.0.0',
