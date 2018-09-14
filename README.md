@@ -17,6 +17,7 @@ $ yarn start
 
 ```sh
 $ yarn storybook
+$ yarn storybook:deploy
 ```
 
 ### ビルド
@@ -25,8 +26,8 @@ $ yarn storybook
 $ yarn build:[test|stg|prod]
 ```
 
-### Storybookのビルド
+### ユニットテスト
 
 ```sh
-$ yarn build-storybook
+$ yarn test
 ```
