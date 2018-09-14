@@ -9,7 +9,7 @@
     "build:prod": "del build && NODE_ENV=production webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "storybook:deploy": "netlify deploy",
+    "storybook:deploy": "build-storybook && netlify deploy",
     "test": "jest"
   },
   "prettier": {
@@ -31,7 +31,6 @@
     "@storybook/addon-links": "^3.4.10",
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
-    "babel-core": "^7.0.0-0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
@@ -62,6 +61,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-core": "^6.26.3",
     "connected-react-router": "^4.4.1",
     "convert-keys": "1.2.0",
     "history": "^4.7.2",
