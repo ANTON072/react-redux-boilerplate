@@ -165,3 +165,4 @@ fabric.properties
 
 # プロジェクト用
 build
+storybook-static
