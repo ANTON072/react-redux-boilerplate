@@ -1,7 +1,8 @@
 import { createAction } from 'redux-actions'
 import produce from 'immer'
-import { delay } from 'redux-saga'
 import { call, fork, put, take, all, select } from 'redux-saga/effects'
+
+import { apiSample } from '../../../api/'
 
 /*==================================
 Actions
@@ -26,22 +27,17 @@ function* submitSaga() {
   while (true) {
     yield take(SEND_REQUEST)
     try {
-      // const sendData = yield select(state => state.Pages.home.input);
-      // const response = yield call(http, {
-      //   url: 'login',
-      //   method: 'post',
-      //   data: { ...sendData }
-      // });
-      // 通信をシュミレーション
-      const response = yield call(delay, 3000)
-      alert('送信完了')
-      yield put({ type: SEND_SUCCESS })
+      const sendData = yield select(state => state.pages.home.input)
+      const response = yield call(apiSample, sendData)
       if (response) {
+        alert('送信完了')
+        console.log(response)
+        yield put({ type: SEND_SUCCESS })
       } else {
         // エラー処理
       }
     } catch (error) {
-      alert('通信エラー')
+      console.log(error)
       yield put({ type: SEND_FAILURE })
     }
   }
