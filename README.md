@@ -22,7 +22,7 @@ $ yarn storybook
 ### ビルド
 
 ```sh
-$ yarn build:[test | stg | prod]
+$ yarn build:[test|stg|prod]
 ```
 
 ### Storybookのビルド
