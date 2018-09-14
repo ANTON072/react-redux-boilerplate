@@ -31,6 +31,7 @@
     "@storybook/addon-links": "^3.4.10",
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
@@ -60,8 +61,8 @@
     "webpack-serve": "^2.0.2"
   },
   "dependencies": {
+    "@rebass/grid": "^6.0.0-3",
     "axios": "^0.18.0",
-    "babel-core": "^6.26.3",
     "connected-react-router": "^4.4.1",
     "convert-keys": "1.2.0",
     "history": "^4.7.2",
