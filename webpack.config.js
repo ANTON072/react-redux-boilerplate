@@ -28,17 +28,17 @@ module.exports = {
     publicPath: '/',
     path: path.resolve(__dirname, output)
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendor',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  // },
   plugins: [
     new htmlPlugin({ template: 'src/index.html' }),
     new webpack.DefinePlugin({
