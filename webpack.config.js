@@ -1,7 +1,5 @@
 const path = require('path')
 const htmlPlugin = require('html-webpack-plugin')
-const history = require('connect-history-api-fallback')
-const convert = require('koa-connect')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -45,7 +43,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV),
       'process.env.CONFIG': JSON.stringify(config)
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ].concat(
     isProd
       ? [
@@ -91,14 +90,13 @@ module.exports = {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000
   },
-  serve: {
-    content: path.resolve(__dirname, 'public'),
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
     host: '0.0.0.0',
-    reload: false,
-    hotClient: false,
     open: true,
-    add: app => {
-      app.use(convert(history({ index: '/' })))
-    }
+    historyApiFallback: true,
+    https: true,
+    useLocalIp: true,
+    hot: true
   }
 }

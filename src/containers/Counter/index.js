@@ -1,25 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { compose, withHandlers } from 'recompose'
+import { compose, withHandlers, withState } from 'recompose'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { actions } from '../../redux/modules/shared/counter'
+import { actions, withValue } from '../../redux/modules/shared/counter'
 import Button from '../../components/Button'
 
-export function Counter({ value, handleClick }) {
+export function Counter({
+  value,
+  text,
+  handleClick,
+  setMyCounter,
+  myCounter,
+  incrementMyCounter
+}) {
   return (
     <Root>
       <h2>Counter</h2>
       <p>
         value:
-        {value}
+        {text}
       </p>
       <p>
         <Button onClick={handleClick('increment', 5)}>Increment</Button>
         <Button onClick={handleClick('decrement', 2)}>Decrement</Button>
       </p>
+      <button onClick={incrementMyCounter}>my counter</button>
+      <p>{myCounter}</p>
     </Root>
   )
 }
@@ -37,10 +46,13 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   ),
+  withValue,
+  withState('myCounter', 'setMyCounter', 0),
   withHandlers({
-    handleClick: props => (key, num) => () => {
-      props.actions.count(num, key)
-    }
+    handleClick: ({ actions }) => (key, num) => () => {
+      actions.count(num, key)
+    },
+    incrementMyCounter: ({ setMyCounter }) => () => setMyCounter(n => n + 1)
   })
 )(Counter)
 
