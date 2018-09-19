@@ -95,7 +95,6 @@ module.exports = {
     host: '0.0.0.0',
     open: true,
     historyApiFallback: true,
-    https: true,
     useLocalIp: true,
     hot: true
   }
