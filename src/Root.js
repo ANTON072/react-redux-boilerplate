@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { injectGlobal } from 'styled-components'
 import styledNormalize from 'styled-normalize'
+import { hot } from 'react-hot-loader'
 
 import baseStyles from './misc/baseStyles'
 import theme from './misc/theme'
@@ -24,7 +25,7 @@ function Root({ history }) {
   )
 }
 
-export default Root
+export default hot(module)(Root)
 
 // グローバルのCSS設定
 injectGlobal`

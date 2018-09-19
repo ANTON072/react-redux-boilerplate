@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack-serve",
+    "start": "webpack-dev-server --color",
     "build:test": "del build && NODE_ENV=test webpack",
     "build:stg": "del build && NODE_ENV=staging webpack",
     "build:prod": "del build && NODE_ENV=production webpack",
@@ -38,7 +38,6 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-runtime": "^6.26.0",
     "compression-webpack-plugin": "^2.0.0",
-    "connect-history-api-fallback": "^1.5.0",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "del-cli": "^1.1.0",
@@ -49,16 +48,16 @@
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
-    "koa-connect": "^2.0.1",
     "netlify-cli": "^1.2.3",
     "prettier": "^1.14.2",
     "prettier-eslint": "^8.8.2",
+    "react-hot-loader": "^4.3.8",
     "regenerator-runtime": "^0.12.1",
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.18.0",
     "webpack-cli": "^3.1.0",
-    "webpack-serve": "^2.0.2"
+    "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
     "@rebass/grid": "^6.0.0-3",
