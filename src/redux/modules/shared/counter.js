@@ -1,20 +1,21 @@
 import { createAction } from 'redux-actions'
 import produce from 'immer'
+import { withProps } from 'recompose'
 
 /*==================================
-Actions
+* Actions
 ==================================*/
 const COUNT = 'counter/count'
 
 /*==================================
-Action Creators
+* Action Creators
 ==================================*/
 export const actions = {
   count: createAction(COUNT, num => num, (num, key) => ({ key: key }))
 }
 
 /*==================================
-Saga
+* Saga
 ==================================*/
 // function* counterSaga() {
 //   while (true) {}
@@ -32,7 +33,7 @@ const initialState = {
 }
 
 /*==================================
-Reducer
+* Reducer
 ==================================*/
 export default function reducer(state = initialState, action = {}) {
   return produce(state, draft => {
@@ -50,3 +51,11 @@ export default function reducer(state = initialState, action = {}) {
     }
   })
 }
+
+/*==================================
+* Selector
+==================================*/
+export const withValue = withProps(({ value }) => {
+  const text = value === 0 ? 'nothing' : `${value}点`
+  return { text }
+})
