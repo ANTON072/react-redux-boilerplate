@@ -51,7 +51,7 @@ module.exports = {
     isProd
       ? [
           new CopyWebpackPlugin([
-            { from: '**/(!README)*', to: '.', context: 'public' }
+            { from: '**/*', to: '.', context: 'public', ignore: ['*.md'] }
           ]),
           new CompressionPlugin({
             test: /\.js(\?.*)?$/i
