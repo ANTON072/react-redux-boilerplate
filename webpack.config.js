@@ -3,6 +3,7 @@ const htmlPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 const isProd = ENV === 'production' || ENV === 'staging'
@@ -44,7 +45,8 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(ENV),
       'process.env.CONFIG': JSON.stringify(config)
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new GenerateSW()
   ].concat(
     isProd
       ? [
