@@ -5,12 +5,13 @@ import createSagaMiddleware from 'redux-saga'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { fork, all } from 'redux-saga/effects'
 
+import app from './modules/app'
 import pages, { pagesSaga } from './modules/pages'
 import shared from './modules/shared'
 
 const history = createBrowserHistory()
 const composeEnhancers = composeWithDevTools({})
-const reducer = combineReducers({ pages, shared })
+const reducer = combineReducers({ app, pages, shared })
 const sagaMiddleware = createSagaMiddleware()
 const middleweare = [sagaMiddleware, routerMiddleware(history)]
 
