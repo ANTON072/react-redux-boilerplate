@@ -45,8 +45,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(ENV),
       'process.env.CONFIG': JSON.stringify(config)
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new GenerateSW()
+    new webpack.HotModuleReplacementPlugin()
   ].concat(
     isProd
       ? [
@@ -55,7 +54,8 @@ module.exports = {
           ]),
           new CompressionPlugin({
             test: /\.js(\?.*)?$/i
-          })
+          }),
+          new GenerateSW()
         ]
       : []
   ),
